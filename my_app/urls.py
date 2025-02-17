@@ -9,6 +9,15 @@ urlpatterns = [
     path('adminhome',views.adminhome),
     path('experthome',views.experthome),
     path('logincode',views.logincode),
+    path('addexpert',views.addexpert),
+    path('addsignlanguage',views.addsignlanguage),
+    path('blockunblock',views.blockunblock),
+    path('complaintReplay',views.complaintReplay),
+    path('managexpert',views.managexpert),
+    path('managesignlanguage',views.managesignlanguage),
+    path('viewcomplaint',views.viewcomplaint),
+    path('viewfeedback',views.viewfeedback),
+
 
 
 ]

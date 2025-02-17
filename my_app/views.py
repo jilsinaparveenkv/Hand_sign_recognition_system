@@ -26,3 +26,32 @@ def adminhome(request):
     return render(request,'admin/index.html')
 def experthome(request):
     return render(request,'expert/index.html')
+
+
+
+def addexpert(request):
+    return render(request,'admin/Add_expert.html')
+
+def addsignlanguage(request):
+    return render(request,'admin/Add_new_sign.html')
+
+def blockunblock(request):
+    return render(request,'admin/Block_and_unblock_User.html')
+
+def complaintReplay(request):
+    return render(request,'admin/Complaint_Replay.html')
+
+def managexpert(request):
+    return render(request,'admin/Manage_expert.html')
+
+def managesignlanguage(request):
+    return render(request,'admin/Manage_sign_language.html')
+
+def viewcomplaint(request):
+    return render(request,'admin/View_Complaint.html')
+
+def viewfeedback(request):
+    return render(request,'admin/View_Feedback.html')
+
+
+
