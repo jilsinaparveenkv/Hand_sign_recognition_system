@@ -1,0 +1,30 @@
+{% extends 'admin/admin index.html' %}
+{% block body %}
+<body>
+<form name="f2" action="/AddTest" method="post" >
+     <table class="table table-hover table-dark">
+         <tr>
+              <td>Test</td>
+             <td>
+                 <input type="text" name="test" required pattern="[A-Z a-z.]{3,25}">
+             </td></tr><tr>
+              <td>Level</td>
+              <td>
+                 <select name="select">
+                     <option value="Easy">Easy</option>
+                     <option value="Medium">Medium</option>
+                     <option value="Difficult">Difficult</option>
+                 </select>
+              </td>
+            </tr>
+
+
+            <tr align="center">
+                <td colspan="2">
+                    <input type="submit">
+                </td>
+        </tr>
+    </table>
+</form>
+</body>
+{% endblock %}

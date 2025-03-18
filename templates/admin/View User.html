@@ -1,0 +1,38 @@
+{% extends 'admin/admin index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/ViewUser_search">
+
+<table class="pull-left table table-secondary">
+    <tr>
+      <td colspan="4">Name
+        <label></label>
+          <label>
+          <input type="text" name="textfield" value="{{ nm }}" class="form-control" required pattern="[A-Z a-z.]{3,25}"/>
+          </label>
+          <label>
+          <input type="submit" name="Submit" value="Search" class="btn btn-primary"/>
+          </label>
+          <label></label></td>
+    </tr>
+</table>
+  <table class="table table-hover table-dark">
+    <tr>
+      <td>Name</td>
+      <td>Address</td>
+      <td>Phone Number </td>
+      <td>Email</td>
+    </tr>
+       {% for i in data %}
+      <tr>
+      <td>{{ i.FirstName }} {{ i.SecondName }}</td>
+      <td>{{ i.Place }}</td>
+      <td>{{ i.Phone }} </td>
+      <td>{{ i.Email }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

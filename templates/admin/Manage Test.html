@@ -1,0 +1,47 @@
+{% extends 'admin/admin index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/testsearch">
+<table class="pull-left table table-secondary">
+    <tr>
+        <td>
+            <label>Test Name</label>
+        </td>
+
+
+        <td>Test Name
+            <input type="text" name="textfield" value="{{ nm }}" required pattern="[A-Z a-z.]{3,25}"/>
+            <input type="submit" name="Submit"  class="btn btn-primary" value="Search" />
+        </td>
+    </tr>
+</table>
+
+
+  <table class="table table-hover table-dark">
+
+    <tr>
+      <td>Test</td>
+      <td>Uploaded Date </td>
+      <td>Level</td>
+      <td></td>
+    </tr>
+    <tr>
+        {% for i in data %}
+        <td>{{ i.Test }}</td>
+        <td>{{ i.Date }}</td>
+        <td>{{ i.Level }}</td>
+      <td>
+          <a href="/EditTest/{{ i.id }}" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;&nbsp;</a><br><br>
+          <a href="/DeleteTest/{{ i.id }}" class="btn btn-danger">&nbsp;&nbsp;Delete&nbsp;&nbsp;</a><br>
+          <a href="/ViewQuestion/{{ i.id }}" class="btn btn-link"> Questions</a>
+      </td>
+    </tr>
+      {% endfor %}
+    <tr>
+      <td colspan="4"><a href="/AddTestto" class="btn btn-success">Add</a></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'admin/admin index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/ManageExpert_search">
+<table class="pull-left table table-secondary">
+    <tr>
+      <td>Name
+        <label>
+        <input type="text" name="textfield" value="{{ nm }}"  class="form-control" required pattern="[A-Z a-z.]{3,25}"/>
+      </label>
+      <label>
+      <input type="submit" name="Submit" value="Search" class="btn btn-primary"/>
+      </label>
+      </td>
+    </tr>
+</table>
+  <table class="table table-hover table-dark">
+    <tr>
+      <td>Name</td>
+      <td>Address</td>
+      <td>Phone </td>
+      <td>Email</td>
+      <td>&nbsp;</td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ i.FirstName }} {{ i.SecondName }}</td>
+      <td>&nbsp;{{ i.Place }}</td>
+      <td>{{ i.Phone }}</td>
+      <td>{{ i.Email }}</td>
+
+        <td><a href="/ManageExpert_edit/{{ i.id }}" class="btn btn-primary">&nbsp;&nbsp;Edit&nbsp;&nbsp;</a><br></br>
+            <a href="/ManageExpert_delete/{{ i.Login.id }}" class="btn btn-danger">Delete</a>
+        </td>
+
+    </tr>
+      {% endfor %}
+    <tr>
+      <td colspan="5" align="center"><a href="/AddExpert" class="btn btn-success">&nbsp;&nbsp;Add&nbsp;&nbsp;</a></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

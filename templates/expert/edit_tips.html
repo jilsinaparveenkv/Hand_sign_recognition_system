@@ -1,0 +1,26 @@
+{% extends 'admin/expert_index.html' %}
+{% block body %}
+<body>
+<form name="f2" action="/edittipsto_post" method="post" >
+     <table class="table table-hover table-dark">
+         <tr>
+              <td>Tips</td>
+             <td>
+                 <input type="text" name="tips" value="{{ data.tips }}" required pattern="[A-Z a-z.]{3,25}">
+             </td></tr>
+       <tr>
+              <td>Details</td>
+             <td>
+                 <input type="text" name="dtails" value="{{ data.dtails }}" required pattern="[A-Z a-z.]{3,300}">
+             </td></tr>
+
+
+            <tr align="center">
+                <td colspan="2">
+                    <input type="submit">
+                </td>
+        </tr>
+    </table>
+</form>
+</body>
+{% endblock %}

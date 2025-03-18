@@ -1,0 +1,33 @@
+{% extends 'admin/expert_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/testsearch">
+
+
+
+  <table class="table table-hover table-dark">
+
+    <tr>
+      <td>Tips</td>
+      <td>Details</td>
+
+      <td></td>
+    </tr>
+    <tr>
+        {% for i in data %}
+        <td>{{ i.tips }}</td>
+        <td>{{ i.dtails }}</td>
+      <td>
+          <a href="/EditTips/{{ i.id }}" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;&nbsp;</a><br><br>
+          <a href="/Deletetips/{{ i.id }}" class="btn btn-danger">&nbsp;&nbsp;Delete&nbsp;&nbsp;</a><br>
+      </td>
+    </tr>
+      {% endfor %}
+    <tr>
+      <td colspan="4"><a href="/Addtipsto" class="btn btn-success">Add</a></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

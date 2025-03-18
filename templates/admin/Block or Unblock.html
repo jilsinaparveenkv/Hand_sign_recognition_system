@@ -1,0 +1,46 @@
+{% extends 'admin/admin index.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="BlockUnblock_search">
+<table class="pull-left table table-secondary">
+     <tr>
+      <td colspan="5">Name
+        <label>
+        <input type="text" name="textfield" value="{{ nm }}" class="form-control" required pattern="[A-Z a-z.]{3,25}" />
+        </label>
+        <label>
+        <input type="submit" name="Submit" value="Search" class="btn btn-primary"/>
+        </label></td>
+    </tr>
+</table>
+  <table class="table table-hover table-dark">
+    <tr>
+      <td>Name</td>
+      <td>Email</td>
+      <td>&nbsp;Address</td>
+      <td>Phone</td>
+      <td></td>
+
+    </tr>
+
+      {% for i in data %}
+      <tr>
+          <td>{{ i.FirstName }} {{ i.SecondName }}</td>
+          <td>{{ i.Email }}</td>
+          <td>&nbsp;{{ i.Place }}</td>
+          <td>{{ i.Phone }}</td>
+
+          <td
+                  {% if i.Login.Type == "Expert" %}>
+              <a href="/blockexp/{{ i.Login.id }}" class="btn btn-danger">Block</a>
+              {% elif i.Login.Type == "Blocked" %}>
+                  <a href="/unblockexp/{{ i.Login.id }}" class="btn btn-success">Unblock</a>
+
+              {% endif %}
+          </td>
+      </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

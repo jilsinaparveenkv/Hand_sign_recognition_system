@@ -1,0 +1,35 @@
+{% extends 'admin/expert_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" enctype="multipart/form-data">
+
+  <table class="table table-hover table-dark">
+    <tr>
+      <td>Video</td>
+      <td>Action</td>
+    </tr>
+
+    {% for i in data %}
+    <tr>
+      <td>
+        <a href="{{ i.video.url }}" download="{{ i.video.name }}" class="btn btn-primary">
+          Download Video
+        </a>
+      </td>
+      <td>
+        <a href="/Deletevideo/{{ i.id }}" class="btn btn-danger">Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+
+    <tr>
+      <td colspan="2">
+        <a href="/Addvideo" class="btn btn-success">Add</a>
+      </td>
+    </tr>
+  </table>
+
+</form>
+</body>
+{% endblock %}

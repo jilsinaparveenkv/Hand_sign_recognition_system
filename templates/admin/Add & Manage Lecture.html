@@ -1,0 +1,49 @@
+{% extends 'admin/admin index.html' %}
+{% block body %}
+
+<body>
+<form action="/LectureSearch" method="post" enctype="multipart/form-data" name="form1" id="form1">
+<table class="pull-left table table-secondary">
+    <tr>
+        <td align="right">Date </td>
+        <td>
+        <input type="date" name="textfield" value="{{ dt }}" required/>
+            <input type="submit" name="Submit" class="btn btn-primary" value="Search" />
+      </td>
+        <td>
+
+        </td><td colspan="2"></td>
+    </tr>
+    <tr>
+</table>
+
+ <table class="table table-hover table-dark">
+
+
+      <td>Lecture Name</td>
+      <td>File</td>
+        <td>Date</td>
+        <td colspan="2"></td>
+    </tr>
+      {% for i in data %}
+      <tr>
+      <td>{{ i.Name }}</td>
+      <td>{{ i.File }}</td>
+      <td>{{ i.Date }}</td>
+          <td>
+              <a href="/EditLecture/{{ i.id }}" class="btn btn-primary">&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a><br><br>
+              <a href="/ManageAddLectures_delete/{{ i.id }}" class="btn btn-danger">Delete</a>
+          </td>
+
+    </tr>
+      {% endfor %}
+ <tr>
+     <td><a href="/AddLecture" class="btn btn-success">ADD</a> </td>
+     <td></td>
+     <td></td>
+     <td></td>
+ </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

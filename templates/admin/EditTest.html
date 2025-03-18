@@ -1,0 +1,30 @@
+{% extends 'admin/admin index.html' %}
+{% block body %}
+<body>
+<form name="f2" action="/editaction" method="post" >
+     <table class="table table-hover table-dark">
+         <tr>
+              <td>Test</td>
+             <td>
+                 <input type="text" name="test" value="{{ data.Test }}" required pattern="[A-Z a-z.]{3,25}">
+             </td></tr><tr>
+              <td>Level</td>
+              <td>
+                 <select name="select" required>
+                     <option value="Easy"{% if data.Level == "Easy" %}selected{% endif %}>Easy</option>
+                     <option value="Medium" {% if data.Level == "Medium" %}selected{% endif %}>Medium</option>
+                     <option value="Difficult" {% if data.Level == "Difficult" %}selected{% endif %}>Difficult</option>
+                 </select>
+              </td>
+            </tr>
+
+
+            <tr align="center">
+                <td colspan="2">
+                    <input type="submit" class="btn btn-primary">
+                </td>
+        </tr>
+    </table>
+</form>
+</body>
+{% endblock %}

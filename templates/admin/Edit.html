@@ -1,0 +1,50 @@
+{% extends 'admin/admin index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/updateexp">
+  <table class="table table-hover table-dark">
+    <tr>
+        <td><b>First Name </b></td>
+      <td><label>
+        <input type="text" name="textfield" value="{{ val.FirstName }}" class="form-control" required pattern="[A-Z a-z.]{3,25}"/>
+      </label></td>
+    </tr>
+    <tr>
+        <td><b>Last Name</b> </td>
+      <td><label>
+      <input type="text" name="textfield2" value="{{ val.SecondName }} " class="form-control" required pattern="[A-Z a-z.]{3,25}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td><b>Place</b></td>
+      <td><label>
+        <textarea name="textarea" class="form-control" required>{{ val.Place }}</textarea>
+      </label></td>
+    </tr>
+    <tr>
+      <td><b>Phone</b></td>
+      <td><label>
+      <input type="text" name="textfield3" value="{{ val.Phone }}" class="form-control" required pattern="[6789][0-9]{9}"/>
+          </label>
+      </td>
+
+    </tr>
+    <tr>
+        <td><b>Email</b></td>
+      <td><label>
+      <input type="text" name="textfield4" value="{{ val.Email }}"  class="form-control" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}"/>
+      </label></td>
+    </tr>
+
+    <tr>
+
+      <td colspan="2" align="center"><label>
+        <input type="submit" name="Submit" value="Update" class="btn btn-primary"/>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+
+{% endblock %}

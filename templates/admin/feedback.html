@@ -1,0 +1,35 @@
+{% extends 'admin/admin index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/Feedback_searchexp">
+<table class="pull-left table table-secondary">
+     <tr>
+        <td align="right"><label>Date</label> </td>
+        <td>
+        <input type="date" name="textfield" value="{{ dt }}"  required/>
+            <input type="submit" name="Submit" value="Search" class="btn btn-primary"/>
+      </td>
+    </tr>
+</table>
+
+  <table class="table table-hover table-dark">
+
+    <tr>
+      <td>User info</td>
+      <td>Feedback</td>
+      <td>Rating</td>
+        <td>Date</td>
+    </tr>
+      {% for i in data %}
+      <tr>
+      <td>{{ i.User.FirstName }} {{ i.User.SecondName }}</td>
+      <td>{{ i.Feedback }}</td>
+      <td>{{ i.Rating }}</td>
+      <td>{{ i.Date }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

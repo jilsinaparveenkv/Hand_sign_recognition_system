@@ -1,0 +1,44 @@
+{% extends 'admin/admin index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+<table class="pull-left table table-secondary">
+    <tr>
+      <td colspan="3"><label>Name
+        <input type="text" name="textfield"  required pattern="[A-Z a-z.]{3,25}"/>
+      </label>
+        <label>
+        <input type="submit" name="Submit" value="Search" />
+        </label></td>
+    </tr>
+</table>
+  <table class=" table table-hover table-dark">
+
+    <tr>
+      <td>User</td>
+      <td>Test</td>
+      <td>Score</td>
+        <td>Suggesion</td>
+    </tr>
+
+{% for i in data %}
+      <tr>
+          <td>{{ i.studentname }}</td>
+          <td>{{ i.testname }}</td>
+          <td>{{ i.mail }}</td>
+          {% if i.sugg == "no" %}
+
+      <td><a href="/Sugessions/{{ i.id }}/{{ i.sid }}" class="btn btn-warning">Sugession</a></td>
+      {% else %}
+              <td>{{ i.sugg }}</td>
+
+      {% endif %}
+    </tr>
+{% endfor %}
+
+
+  </table>
+</form>
+</body>
+{% endblock %}
